@@ -15,22 +15,28 @@
         <h1>Library</h1>
         <button class="addBtn">Add Book</button>
     </div>
+
     <!-- MODAL -->
     <div class="modal">
         <div class="modal-content">
-            <span class="modal-close">&times;</span> 
-            <!-- Modal Fields -->
             <div class="field">
                 <label for="book_title">Title</label>
                 <input type="text" id="book_title" name="book_title" required/>
             </div>
+
             <div class="field">
                 <label for="book_pages">Pages</label>
                 <input type="text" id="book_pages" name="book_pages" required/>
             </div>
+
             <div class="field">
                 <label for="book_read">Read</label>
                 <input type="checkbox" id="book_read" name="book_read" required/>
+            </div>
+
+            <div class="modal-buttons">
+                <button>Add</button>
+                <button>Cancel</button>
             </div>
 
         </div>
