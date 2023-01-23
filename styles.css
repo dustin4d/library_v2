@@ -36,7 +36,7 @@
 }
 
 .modal { /* Background/Parent element */
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     z-index: 1; /* Always on top of everything else */
     position: fixed; /* need this to remove from document flow, sit on top */
     top: 0; /* Anchor to top and left */
@@ -53,12 +53,6 @@
     padding: 20px;
     border: 1px solid black;
     width: 30%;
-}
-
-.modal-close:hover {
-    color: red;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .field {

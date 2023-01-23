@@ -1,6 +1,7 @@
 const addBtn = document.querySelector(".addBtn")
 const modal = document.querySelector(".modal")
-
+const modalAdd = document.querySelector('.modalAdd')
+const modalClose = document.querySelector('.modalClose')
 
 const myLibrary = []
 
@@ -28,18 +29,35 @@ function addBookToLibrary() {
    }
 }
 
-// BUTTON
+// Select each field that contains data (in the modal),
+// Insert the data as arguments for new Book instance,
+// push new book obj to array.
+function addBookToArray() {
+    const bookTitle = document.querySelector('#book_title')
+    const bookAuth = document.querySelector('#book_author')
+    const bookPages = document.querySelector('#book_pages')
+    const bookRead = document.querySelector('#book_read')
+
+    console.log(bookTitle.value)
+    const addBook = new Book(bookTitle.value, bookAuth.value, bookPages.value, bookRead.checked)
+
+    myLibrary.push(addBook)
+}
+
+// BUTTONS
 addBtn.addEventListener("click", () => {
     console.log("Event listener called.")
     // Open modal
     modal.style.display = "block"
 })
 
-// Manually added books; delete later.
-let book1 = new Book("12 Rules for Life", "Jordan B. Peterson", 400, true)
-let book2 = new Book("Extreme Ownership", "Jocko Willink", 300, false)
-let book3 = new Book("Thinking, Fast and Slow", "Daniel Kahneman", 500, false)
-myLibrary.push(book1, book2, book3)
+// Add book to array, then add content from array to DOM
+modalAdd.addEventListener("click", () => {
+    addBookToArray()
+    addBookToLibrary()
+})
 
-// Attach this to the modal button at some point
-addBookToLibrary()
+// Just close the modal
+modalClose.addEventListener("click", () => {
+    modal.style.display = "none"
+})
