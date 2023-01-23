@@ -12,27 +12,32 @@
 </head>
 <body>
     <div class="wrap">
+        <!-- HEADER -->
         <div class="header">
             <h1>Library</h1>
             <button class="addBtn">Add Book</button>
         </div>
 
+        <!-- TABLE -->
         <div class="entries">
-            <table>
-                <tr>
+            <table class="book_table">
+                <thead>
                     <th>Book</th>
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Read</th>
-                </tr>
+                </thead>
+                <tbody class="tableBody">
+                    <tr>
+                        <td>Fellowship of the Ring</td>
+                        <td>J. R. R. Tolkien</td>
+                        <td>423</td>
+                        <td>No</td>
+                    </tr>
+
+                </tbody>
                
-                <tr>
-                    <td>Fellowship of the Ring</td>
-                    <td>J. R. R. Tolkien</td>
-                    <td>423</td>
-                    <td>No</td>
-                </tr>
-                
+                               
             </table>
         </div>
     </div>

@@ -30,7 +30,17 @@ function displayLibrary() {
 
 // fn that creates the table elements for each object in array
 function createRow() {
-
+   const tableBody = document.querySelector('.book_table')
+   for (let i = 0; i < myLibrary.length; i++) {
+    const tr = document.createElement('tr')
+    tr.innerHTML = `
+        <td>${myLibrary[i].title}</td>
+        <td>${myLibrary[i].author}</td>
+        <td>${myLibrary[i].pages}</td>
+        <td>${myLibrary[i].hasRead}</td>
+        `;
+        tableBody.appendChild(tr)
+   }
 }
 
 // BUTTON
