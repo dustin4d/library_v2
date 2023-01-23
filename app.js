@@ -12,15 +12,9 @@ function Book(title, author, pages, hasRead) {
     this.hasRead = hasRead
 }
 
+// Target the table body element, then open a table row, and insert
+// data on each array object by using temp literals, then append to parent
 function addBookToLibrary() {
-    // loop through array
-    for (let i = 0; i < myLibrary.length; i++) {
-        console.log(myLibrary[i])
-    }
-}
-
-// fn that creates the table elements for each object in array
-function createRow() {
    const tableBody = document.querySelector('.book_table')
    for (let i = 0; i < myLibrary.length; i++) {
     const tr = document.createElement('tr')
