@@ -1,6 +1,7 @@
 const addBtn = document.querySelector(".addBtn")
 const modal = document.querySelector(".modal")
 
+
 const myLibrary = []
 
 // constructor
@@ -19,7 +20,16 @@ function addBookToLibrary() {
 }
 
 // Takes contents of myLibrary and displays it in the DOM
+// For each object in the array, create a div for it's information...
 function displayLibrary() {
+    const bookTitle = document.querySelector("#book_title")
+    const bookAuthor = document.querySelector('#book_author')
+    const bookPages = document.querySelector('#book_pages')
+    console.log(bookTitle.value)
+}
+
+// fn that creates the table elements for each object in array
+function createRow() {
 
 }
 
@@ -30,6 +40,7 @@ addBtn.addEventListener("click", () => {
     modal.style.display = "block"
 })
 
+// Manually added books; delete later.
 let book1 = new Book("12 Rules for Life", "Jordan B. Peterson", 400, true)
 let book2 = new Book("Extreme Ownership", "Jocko Willink", 300, false)
 let book3 = new Book("Thinking, Fast and Slow", "Daniel Kahneman", 500, false)

@@ -11,17 +11,43 @@
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <h1>Library</h1>
-        <button class="addBtn">Add Book</button>
-    </div>
+    <div class="wrap">
+        <div class="header">
+            <h1>Library</h1>
+            <button class="addBtn">Add Book</button>
+        </div>
 
+        <div class="entries">
+            <table>
+                <tr>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read</th>
+                </tr>
+               
+                <tr>
+                    <td>Fellowship of the Ring</td>
+                    <td>J. R. R. Tolkien</td>
+                    <td>423</td>
+                    <td>No</td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+    
     <!-- MODAL -->
     <div class="modal">
         <div class="modal-content">
             <div class="field">
                 <label for="book_title">Title</label>
                 <input type="text" id="book_title" name="book_title" required/>
+            </div>
+
+            <div class="field">
+                <label for="book_author">Author</label>
+                <input type="text" id="book_author" name="book_author" required/>
             </div>
 
             <div class="field">
