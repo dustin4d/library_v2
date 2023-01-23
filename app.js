@@ -19,15 +19,6 @@ function addBookToLibrary() {
     }
 }
 
-// Takes contents of myLibrary and displays it in the DOM
-// For each object in the array, create a div for it's information...
-function displayLibrary() {
-    const bookTitle = document.querySelector("#book_title")
-    const bookAuthor = document.querySelector('#book_author')
-    const bookPages = document.querySelector('#book_pages')
-    console.log(bookTitle.value)
-}
-
 // fn that creates the table elements for each object in array
 function createRow() {
    const tableBody = document.querySelector('.book_table')
