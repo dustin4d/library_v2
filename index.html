@@ -6,15 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link href="./styles.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/96548f74f6.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
-    <video class="bg-video" autoplay loop muted>
-        <source src="./src/video-background.mp4">
-    </video>
+    <div class="video-container">
+      <video class="background-video" autoplay loop muted>
+        <source src="./src/video-background.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="blur-layer">
+    </div>
 
     <div class="wrap">
         <!-- HEADER -->
         <div class="header window-borders">
+            <i class="fa-solid fa-book" id="icon"></i>
             <h1>Library</h1>
             <button class="addBtn">Add Book</button>
         </div>
@@ -33,7 +41,7 @@
                         <td>Fellowship of the Ring</td>
                         <td>J. R. R. Tolkien</td>
                         <td>423</td>
-                        <td>No</td>
+                        <td id="readBox">No</td>
                     </tr>
 
                 </tbody>
@@ -78,5 +86,6 @@
     </div>
     
     <script src="./app.js"></script>
-</body>
+
+    </body>
 </html>

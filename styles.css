@@ -3,6 +3,11 @@
   src: url(./src/Techovier.ttf);
 }
 
+@font-face {
+    font-family: "Technovier Thin";
+    src: url(./src/Techovier\ Thin.ttf);
+}
+
 * {
     box-sizing: border-box;
 }
@@ -11,19 +16,28 @@
     --olive: #CCCC99;
 }
 
-.bg-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 1920px;
-    height: 1080px;
-    z-index: -99;
+.video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+
+.background-video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  transform: scale(1.5);
 }
 
 .wrap {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    align-items: stretch;
     margin: 0 auto;
     max-width: 700px;
 }
@@ -32,26 +46,30 @@
     border: 1px solid var(--olive);
     border-top: 3px solid var(--olive);
     width: 100%;
-    /*background: linear-gradient(to bottom, rgba(204, 204, 153, 0.3), transparent);*/
-    background-color: rgba(0, 0, 0, 0.3)
+    background: linear-gradient(to bottom, rgba(204, 204, 153, 0.3), transparent);
+    background-color: rgba(0, 0, 0, 0.5)
 }
 
 .header {
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     height: 40px;
     max-width: 700px;
     padding: 0 1rem;
 
     font-family: 'Technovier';
+    font-size: 14px;
     color: var(--olive);
 }
 
+#icon {
+    font-size: 20px;
+    margin-right: 8px;
+}
 .header button {
+    margin-left: auto;
     font-size: 1.3rem;
-    font-family: 'EB Garamond';
     height: 2rem;
     width: 200px;
     border: none;
@@ -71,7 +89,7 @@
     top: 0; /* Anchor to top and left */
     left: 0;
     width: 100%; /* Full viewport width and height*/
-    background-color: rgba(0, 0, 0, 0.4); /* Opaque background */
+    background-color: rgba(0, 0, 0, 0.0); /* Opaque background */
 
     /* Also using the modal fade-in here -- less jarring */
     animation: fadeIn 1s;
@@ -104,12 +122,31 @@
     width: max-content;
 }
 
+thead,
+tbody {
+}
+
 .book_table {
-    width: 100%;
-    height: 100%;
+    display: block;
+    height: calc(100vh - 100px);
     text-align: left;
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Technovier";
+    color: var(--olive);
+}
+
+.tableBody {
+    font-family: "Technovier Thin";
+}
+
+#readBox {
+    background-color: var(--olive);
+    color: #000;
+    border-radius: 3px;
+}
+
+#readBox:hover {
+    background-color: transpar/nt;
     color: var(--olive);
 }
 
