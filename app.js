@@ -19,6 +19,13 @@ function addBookToLibrary() {
    const tableBody = document.querySelector('.book_table')
    for (let i = 0; i < myLibrary.length; i++) {
     const tr = document.createElement('tr')
+    if (myLibrary[i].hasRead === false) {`
+        <td>${myLibrary[i].title}</td>
+        <td>${myLibrary[i].author}</td>
+        <td>${myLibrary[i].pages}</td>
+        <td>${myLibrary[i].hasRead}</td>
+        `
+    }
     tr.innerHTML = `
         <td>${myLibrary[i].title}</td>
         <td>${myLibrary[i].author}</td>
@@ -41,7 +48,12 @@ function addBookToArray() {
     console.log(bookTitle.value)
     const addBook = new Book(bookTitle.value, bookAuth.value, bookPages.value, bookRead.checked)
 
-    myLibrary.push(addBook)
+    if (myLibrary.length === 0) {
+        console.log("Array is empty.")
+        return
+    } else {
+        myLibrary.push(addBook)
+    }
 }
 
 // BUTTONS
@@ -52,12 +64,15 @@ addBtn.addEventListener("click", () => {
 })
 
 // Add book to array, then add content from array to DOM
-modalAdd.addEventListener("click", () => {
+modalAdd.addEventListener("click", (e) => {
+    e.preventDefault()
     addBookToArray()
     addBookToLibrary()
 })
 
 // Just close the modal
+// Will throw an error because the elements
+// get removed from the DOM.
 modalClose.addEventListener("click", () => {
     modal.style.display = "none"
 })

@@ -6,20 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library</title>
     <link href="./styles.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
+    <video class="bg-video" autoplay loop muted>
+        <source src="./src/video-background.mp4">
+    </video>
+
     <div class="wrap">
         <!-- HEADER -->
-        <div class="header">
+        <div class="header window-borders">
             <h1>Library</h1>
             <button class="addBtn">Add Book</button>
         </div>
 
         <!-- TABLE -->
-        <div class="entries">
+        <div class="entries window-borders">
             <table class="book_table">
                 <thead>
                     <th>Book</th>
@@ -45,6 +46,7 @@
     <!-- MODAL -->
     <div class="modal">
         <div class="modal-content">
+            <form>
             <div class="field">
                 <label for="book_title">Title</label>
                 <input type="text" id="book_title" name="book_title" required/>
@@ -66,11 +68,13 @@
             </div>
 
             <div class="modal-buttons">
-                <button class="modalAdd">Add</button>
+                <button class="modalAdd" type="submit">Add</button>
                 <button class="modalClose">Cancel</button>
             </div>
 
         </div>
+            </form>
+            
     </div>
     
     <script src="./app.js"></script>
