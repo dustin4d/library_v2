@@ -2,6 +2,7 @@ const addBtn = document.querySelector(".addBtn")
 const modal = document.querySelector(".modal")
 const modalAdd = document.querySelector('.modalAdd')
 const modalClose = document.querySelector('.modalClose')
+const readBtn = document.querySelector('#readBox')
 
 const myLibrary = []
 
@@ -23,7 +24,7 @@ function addBookToLibrary() {
         <td>${myLibrary[i].title}</td>
         <td>${myLibrary[i].author}</td>
         <td>${myLibrary[i].pages}</td>
-        <td>${myLibrary[i].hasRead}</td>
+        <td class="readBtn">${myLibrary[i].hasRead}</td>
         `
     }
     tr.innerHTML = `
@@ -61,6 +62,12 @@ addBtn.addEventListener("click", () => {
     console.log("Event listener called.")
     // Open modal
     modal.style.display = "block"
+})
+
+readBtn.addEventListener("click", () => {
+    console.log("Read button clicked")
+    // Todo: Grab the object's read status
+    // and switch it when this is clicked
 })
 
 // Add book to array, then add content from array to DOM
