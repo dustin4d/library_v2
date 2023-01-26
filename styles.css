@@ -122,21 +122,23 @@
     width: max-content;
 }
 
-thead,
-tbody {
+.entries {
+    height: calc(100vh - 100px);
 }
 
 .book_table {
-    display: block;
-    height: calc(100vh - 100px);
     text-align: left;
-
     font-family: "Technovier";
     color: var(--olive);
 }
 
+table{
+    width: 100%;
+}
+
 .tableBody {
     font-family: "Technovier Thin";
+    vertical-align: top;
 }
 
 #readBox {
