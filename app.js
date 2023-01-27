@@ -18,27 +18,27 @@ function Book(title, author, pages, hasRead) {
 // data on each array object by using temp literals, then append to parent
 function addBookToLibrary() {
    const tableBody = document.querySelector('.book_table')
-   for (let i = 0; i < myLibrary.length; i++) {
-    const tr = document.createElement('tr')
-    if (myLibrary[i].hasRead === false) {
+   const lastAddedBook = myLibrary[myLibrary.length - 1]
+   const tr = document.createElement('tr')
+
+    if (lastAddedBook.hasRead === false) {
         tr.innerHTML = `
-            <td>${myLibrary[i].title}</td>
-            <td>${myLibrary[i].author}</td>
-            <td>${myLibrary[i].pages}</td>
+            <td>${lastAddedBook.title}</td>
+            <td>${lastAddedBook.author}</td>
+            <td>${lastAddedBook.pages}</td>
             <td class="readBtn">No</td>
             `
             tableBody.appendChild(tr)
-        } else if(myLibrary[i].hasRead === true){
+        } else if(lastAddedBook.hasRead === true){
         tr.innerHTML = `
-            <td>${myLibrary[i].title}</td>
-            <td>${myLibrary[i].author}</td>
-            <td>${myLibrary[i].pages}</td>
+            <td>${lastAddedBook.title}</td>
+            <td>${lastAddedBook.author}</td>
+            <td>${lastAddedBook.pages}</td>
             <td class="readBtn">Yes</td>
             `
             tableBody.appendChild(tr)
         }
     }
-}
 
 // Select each field that contains data (in the modal),
 // Insert the data as arguments for new Book instance,
