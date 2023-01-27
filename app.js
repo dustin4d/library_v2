@@ -20,21 +20,24 @@ function addBookToLibrary() {
    const tableBody = document.querySelector('.book_table')
    for (let i = 0; i < myLibrary.length; i++) {
     const tr = document.createElement('tr')
-    if (myLibrary[i].hasRead === false) {`
-        <td>${myLibrary[i].title}</td>
-        <td>${myLibrary[i].author}</td>
-        <td>${myLibrary[i].pages}</td>
-        <td class="readBtn">${myLibrary[i].hasRead}</td>
-        `
+    if (myLibrary[i].hasRead === false) {
+        tr.innerHTML = `
+            <td>${myLibrary[i].title}</td>
+            <td>${myLibrary[i].author}</td>
+            <td>${myLibrary[i].pages}</td>
+            <td class="readBtn">No</td>
+            `
+            tableBody.appendChild(tr)
+        } else if(myLibrary[i].hasRead === true){
+        tr.innerHTML = `
+            <td>${myLibrary[i].title}</td>
+            <td>${myLibrary[i].author}</td>
+            <td>${myLibrary[i].pages}</td>
+            <td class="readBtn">Yes</td>
+            `
+            tableBody.appendChild(tr)
+        }
     }
-    tr.innerHTML = `
-        <td>${myLibrary[i].title}</td>
-        <td>${myLibrary[i].author}</td>
-        <td>${myLibrary[i].pages}</td>
-        <td>${myLibrary[i].hasRead}</td>
-        `;
-        tableBody.appendChild(tr)
-   }
 }
 
 // Select each field that contains data (in the modal),
@@ -46,14 +49,20 @@ function addBookToArray() {
     const bookPages = document.querySelector('#book_pages')
     const bookRead = document.querySelector('#book_read')
 
-    console.log(bookTitle.value)
     const addBook = new Book(bookTitle.value, bookAuth.value, bookPages.value, bookRead.checked)
 
-    if (myLibrary.length === 0) {
-        console.log("Array is empty.")
+    if (bookTitle.value === "") {
+        console.log("You need a title")
+        return
+    } else if (bookAuth.value === "") {
+        console.log("You need an author")
+        return
+    } else if (bookPages.value === "") {
+        console.log("You need to add page count")
         return
     } else {
         myLibrary.push(addBook)
+        return
     }
 }
 
@@ -64,10 +73,11 @@ addBtn.addEventListener("click", () => {
     modal.style.display = "block"
 })
 
-readBtn.addEventListener("click", () => {
+readBtn.addEventListener("click", (e) => {
     console.log("Read button clicked")
     // Todo: Grab the object's read status
     // and switch it when this is clicked
+    console.log(e)
 })
 
 // Add book to array, then add content from array to DOM
@@ -80,6 +90,7 @@ modalAdd.addEventListener("click", (e) => {
 // Just close the modal
 // Will throw an error because the elements
 // get removed from the DOM.
-modalClose.addEventListener("click", () => {
+modalClose.addEventListener("click", (e) => {
+    e.preventDefault()
     modal.style.display = "none"
 })
