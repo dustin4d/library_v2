@@ -2,7 +2,8 @@ const addBtn = document.querySelector(".addBtn")
 const modal = document.querySelector(".modal")
 const modalAdd = document.querySelector('.modalAdd')
 const modalClose = document.querySelector('.modalClose')
-const readBtn = document.querySelector('#readBox')
+const readBtn = document.querySelector('.readBox')
+const entries = document.querySelector('.entries')
 
 const myLibrary = []
 
@@ -17,7 +18,7 @@ function Book(title, author, pages, hasRead) {
 // Target the table body element, then open a table row, and insert
 // data on each array object by using temp literals, then append to parent
 function addBookToLibrary() {
-   const tableBody = document.querySelector('.book_table')
+   const tableBody = document.querySelector('.tableBody')
    const lastAddedBook = myLibrary[myLibrary.length - 1]
    const tr = document.createElement('tr')
 
@@ -26,7 +27,7 @@ function addBookToLibrary() {
             <td>${lastAddedBook.title}</td>
             <td>${lastAddedBook.author}</td>
             <td>${lastAddedBook.pages}</td>
-            <td class="readBtn">No</td>
+            <td class="readBox">No</td>
             `
             tableBody.appendChild(tr)
         } else if(lastAddedBook.hasRead === true){
@@ -34,7 +35,7 @@ function addBookToLibrary() {
             <td>${lastAddedBook.title}</td>
             <td>${lastAddedBook.author}</td>
             <td>${lastAddedBook.pages}</td>
-            <td class="readBtn">Yes</td>
+            <td class="readBox">Yes</td>
             `
             tableBody.appendChild(tr)
         }
@@ -71,6 +72,7 @@ addBtn.addEventListener("click", () => {
     console.log("Event listener called.")
     // Open modal
     modal.style.display = "block"
+    entries.style.display = 'none'
 })
 
 readBtn.addEventListener("click", (e) => {
@@ -93,4 +95,5 @@ modalAdd.addEventListener("click", (e) => {
 modalClose.addEventListener("click", (e) => {
     e.preventDefault()
     modal.style.display = "none"
+    entries.style.display = "block"
 })
